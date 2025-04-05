@@ -11,7 +11,29 @@
 </head>
 
 <body>
-<script type="text/javascript">window.location.href = "http://pns.yzz.me/";</script>
+<script type="text/javascript">
+  
+import javax.net.ssl.*;
+import java.io.IOException;
+import java.net.URL;
+
+public class SSLConnection {
+    public static void main(String[] args) {
+        try {
+            URL url = new URL("https://example.com");
+            HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+            conn.connect();
+        } catch (SSLHandshakeException e) {
+            System.err.println("SSL handshake failed: " + e.getMessage());
+            // Implement proper error handling
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+</script>
   hi
 </body>
 </html>
